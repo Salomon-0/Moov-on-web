@@ -6,8 +6,8 @@ const destinations = [
     country: "Grèce",
     tag: "Coup de cœur",
     img: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80",
-    price: "À partir de 890€",
   },
+
   {
     name: "Kyoto",
     country: "Japon",
