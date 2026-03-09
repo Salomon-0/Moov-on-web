@@ -6,14 +6,14 @@ const destinations = [
     country: "Grèce",
     tag: "Coup de cœur",
     img: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80",
-    price: "À partir de 890€",
+    price: "À partir de 890Ar",
   },
   {
     name: "Kyoto",
     country: "Japon",
     tag: "Tendance",
     img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80",
-    price: "À partir de 1 240€",
+    price: "À partir de 1 240Ar",
   },
   {
     name: "Marrakech",
