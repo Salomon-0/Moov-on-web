@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 /* ── Icon helpers ── */
@@ -84,7 +84,6 @@ function FloatingInput({
 /* ── Main ── */
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPwd, setShowPwd] = useState(false);
@@ -92,8 +91,6 @@ export default function LoginPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-
-  useEffect(() => { setTimeout(() => setLoaded(true), 60); }, []);
 
   const validate = () => {
     const e: Record<string, string> = {};

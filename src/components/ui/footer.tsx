@@ -1,62 +1,29 @@
-
-const footerCols = [
-    {
-      title: "Explorer",
-      links: ["Destinations", "Offres spéciales", "Voyages en groupe", "Lune de miel"],
-    },
-    {
-      title: "Moov-on",
-      links: ["À propos", "Blog voyage", "Presse", "Carrières"],
-    },
-    {
-      title: "Assistance",
-      links: ["Contact", "FAQ", "Conditions", "Mentions légales"],
-    },
-  ];
-
-function footer() {
+export default function Footer() {
   return (
-    <footer className="bg-[#0d0d0d] text-[#f5f0e8] min-h-screen overflow-x-hidden">
-    <div className="flex justify-between items-start flex-wrap gap-10 mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="font-cg font-semibold text-xl text-[#f5f0e8]">Moov</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d4a853]" />
-              <span className="font-cg font-light italic text-xl text-[#d4a853]">on</span>
-            </div>
-            <p className="font-dm font-light text-[0.78rem] text-[#6b6255] max-w-[200px] leading-relaxed">
-              Des voyages d'exception pour des esprits curieux du monde.
-            </p>
-          </div>
+    <footer role="contentinfo" className="border-t border-stone-100 bg-white mt-4">
+      <div className="max-w-6xl mx-auto px-6 py-9 flex flex-col md:flex-row items-center justify-between gap-5">
+        {/* Brand */}
+        <div className="flex items-baseline gap-0.5">
+          <span className="font-black text-stone-900" style={{ fontFamily: "'DM Serif Display',serif" }}>Moov</span>
+          <span className="font-black" style={{ color: "#E8440A", fontFamily: "'DM Serif Display',serif" }}>.On</span>
+          <span className="text-stone-400 text-[0.82rem] ml-2.5">— L'activité parfaite, partout à Madagascar</span>
+        </div>
 
-          {footerCols.map((col) => (
-            <div key={col.title}>
-              <p className="font-dm text-[0.6rem] tracking-[0.18em] uppercase text-[#d4a853] mb-4">
-                {col.title}
-              </p>
-              {col.links.map((l) => (
-                <a
-                  key={l}
-                  href="#"
-                  className="font-dm text-[0.78rem] text-[#6b6255] hover:text-[#c9bfa8] transition-colors block mb-2.5"
-                >
-                  {l}
-                </a>
-              ))}
-            </div>
+        {/* Links */}
+        <nav aria-label="Liens secondaires" className="flex gap-6 text-[0.82rem] text-stone-400">
+          {["À propos", "Contact", "CGU", "Confidentialité"].map((l) => (
+            <a
+              key={l}
+              href="#"
+              className="hover:text-stone-900 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm"
+            >
+              {l}
+            </a>
           ))}
-        </div>
+        </nav>
 
-        <div className="border-t border-white/[0.05] pt-6 flex justify-between items-center">
-          <p className="font-dm text-[0.66rem] tracking-wide text-[#3d3830]">
-            © 2026 Moov-on. Tous droits réservés.
-          </p>
-          <p className="font-cg italic text-[0.86rem] text-[#3d3830]">
-            Move. Discover. Live.
-          </p>
-        </div>
-      </footer>
-  )
+        <p className="text-[0.76rem] text-stone-400">© 2026 Moov.On · Groupe K</p>
+      </div>
+    </footer>
+  );
 }
-
-export default footer   

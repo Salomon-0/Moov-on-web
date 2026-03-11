@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@theme {
+  /* Couleurs de marque Moov.On */
+  --color-brand: #E8440A;
+  --color-brand-hover: #d63d09;
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}

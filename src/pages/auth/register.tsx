@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 /* ── Icons ── */
@@ -153,7 +153,6 @@ const STEPS = ["Compte", "Profil", "Préférences"];
 /* ── Main ── */
 export default function RegisterPage() {
   const navigate = useNavigate();
-  const [loaded, setLoaded] = useState(false);
   const [step, setStep] = useState(0);
   const [success, setSuccess] = useState(false);
 
@@ -176,8 +175,6 @@ export default function RegisterPage() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => { setTimeout(() => setLoaded(true), 60); }, []);
 
   const togglePref = (label: string) =>
     setPrefs((p) => p.includes(label) ? p.filter((x) => x !== label) : [...p, label]);
