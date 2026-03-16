@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import { GuestRoute } from "./routes/guards";
+import { GuestRoute } from "./guards/guards";
 
 const LoginPage = lazy(() => import("./pages/auth/login"));
 const RegisterPage = lazy(() => import("./pages/auth/register"));
