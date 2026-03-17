@@ -6,6 +6,10 @@ import { GuestRoute } from "./guards/guards";
 
 const LoginPage = lazy(() => import("./pages/auth/login"));
 const RegisterPage = lazy(() => import("./pages/auth/register"));
+const ExplorerPage = lazy(() => import("./pages/Explorer"));
+const PopulairesPage = lazy(() => import("./pages/Populaires"));
+const AgendaPage = lazy(() => import("./pages/Agenda"));
+const AboutPage = lazy(() => import("./pages/about"));
 
 function PageLoader() {
   return (
@@ -20,6 +24,10 @@ export default function App() {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/explorer" element={<ExplorerPage />} />
+        <Route path="/populaires" element={<PopulairesPage />} />
+        <Route path="/agenda" element={<AgendaPage />} />
+        <Route path="/about" element={<AboutPage />} />
 
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<LoginPage />} />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,13 +27,34 @@ export default function NavBar() {
 
         {/* Desktop nav */}
         <nav aria-label="Navigation principale" className="hidden md:flex items-center gap-7">
-          {["Explorer", "Populaires", "Agenda", "À propos"].map((l) => (
-            <a key={l} href="#"
-              className="text-[0.875rem] font-medium text-stone-500 hover:text-stone-900 relative group transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-sm"
+          {[
+            { label: "Explorer", path: "/explorer" },
+            { label: "Populaires", path: "/populaires" },
+            { label: "Agenda", path: "/agenda" },
+            { label: "À propos", path: "/about" },
+          ].map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }: { isActive: boolean }) =>
+                `text-[0.875rem] font-medium relative group transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-sm ${
+                  isActive
+                    ? "text-stone-900"
+                    : "text-stone-500 hover:text-stone-900"
+                }`
+              }
             >
-              {l}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-stone-900 group-hover:w-full transition-all duration-250 rounded-full" />
-            </a>
+              {({ isActive }: { isActive: boolean }) => (
+                <>
+                  {item.label}
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-[1.5px] bg-stone-900 transition-all duration-250 rounded-full ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </>
+              )}
+            </NavLink>
           ))}
         </nav>
 
@@ -71,12 +92,30 @@ export default function NavBar() {
         aria-hidden={!open}
       >
         <div className="px-6 pb-6 pt-3 flex flex-col gap-3 bg-white border-t border-stone-100">
-          {["Explorer", "Populaires", "Agenda", "À propos"].map((l) => (
-            <a key={l} href="#" className="text-[0.9rem] font-medium text-stone-600 py-1.5 border-b border-stone-50">{l}</a>
+          {[
+            { label: "Explorer", path: "/explorer" },
+            { label: "Populaires", path: "/populaires" },
+            { label: "Agenda", path: "/agenda" },
+            { label: "À propos", path: "/about" },
+          ].map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }: { isActive: boolean }) =>
+                `text-[0.9rem] font-medium py-1.5 border-b border-stone-50 ${
+                  isActive
+                    ? "text-stone-900 border-stone-900"
+                    : "text-stone-600"
+                }`
+              }
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </NavLink>
           ))}
           <div className="flex gap-2.5 pt-2">
-            <Link to="/login" className="flex-1 text-[0.875rem] font-semibold border border-stone-200 text-stone-700 py-2.5 rounded-xl text-center hover:border-stone-800 transition-colors">Connexion</Link>
-            <Link to="/register" className="flex-1 text-[0.875rem] font-bold bg-stone-900 text-white py-2.5 rounded-xl text-center hover:bg-[#E8440A] transition-colors">S'inscrire</Link>
+            <Link to="/login" className="flex-1 text-[0.875rem] font-semibold border border-stone-200 text-stone-700 py-2.5 rounded-xl text-center hover:border-stone-800 transition-colors" onClick={() => setOpen(false)}>Connexion</Link>
+            <Link to="/register" className="flex-1 text-[0.875rem] font-bold bg-stone-900 text-white py-2.5 rounded-xl text-center hover:bg-[#E8440A] transition-colors" onClick={() => setOpen(false)}>S'inscrire</Link>
           </div>
         </div>
       </div>
