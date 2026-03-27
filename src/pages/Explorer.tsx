@@ -58,11 +58,10 @@ export default function ExplorerPage() {
                 <button
                   key={type}
                   onClick={() => setFilterType(type)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-colors ${
-                    filterType === type
-                      ? "bg-stone-900 text-white"
-                      : "bg-white text-stone-600 border border-stone-200 hover:border-stone-400"
-                  }`}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-colors ${filterType === type
+                    ? "bg-stone-900 text-white"
+                    : "bg-white text-stone-600 border border-stone-200 hover:border-stone-400"
+                    }`}
                 >
                   {type}
                 </button>
