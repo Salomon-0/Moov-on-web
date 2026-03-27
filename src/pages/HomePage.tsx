@@ -75,6 +75,7 @@ export default function HomePage() {
           description="Les meilleures expériences à vivre maintenant"
           linkLabel="Tout voir →"
           id="featured-heading"
+          // eslint-disable-next-line react-hooks/refs
           visible={featuredSection.visible}
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -95,6 +96,7 @@ export default function HomePage() {
           description="Découvrez les dernières nouveautés sur Moov.On"
           linkLabel="Tout voir →"
           id="recent-heading"
+          // eslint-disable-next-line react-hooks/refs
           visible={recentSection.visible}
         />
         <div className="rounded-2xl p-2.5 space-y-0.5" style={{ background: "#F5F4F2" }}>
